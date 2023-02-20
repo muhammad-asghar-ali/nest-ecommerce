@@ -10,6 +10,7 @@ export class UserService {
   constructor(@InjectModel('User') private userModel: Model<User>) {}
 
   sanitizeUser(user: User) {
+    /** Converts this document into a plain-old JavaScript object. */
     const sanitized = user.toObject();
     delete sanitized['password'];
     return sanitized;
