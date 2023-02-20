@@ -4,6 +4,7 @@ import { Model } from 'mongoose';
 import { LoginDto, RegisterDto } from 'src/auth/auth.dto';
 import { User } from 'src/types/user';
 import * as bcrypt from 'bcrypt';
+import { Payload } from 'src/types/payload';
 
 @Injectable()
 export class UserService {
@@ -41,5 +42,10 @@ export class UserService {
     } else {
       throw new HttpException('invalid credentials', HttpStatus.UNAUTHORIZED);
     }
+  }
+
+  async findByPayload(payload: Payload) {
+    const { username } = payload;
+    return await this.userModel.findOne({ username });
   }
 }
