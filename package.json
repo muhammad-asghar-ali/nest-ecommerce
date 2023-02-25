@@ -9,7 +9,10 @@
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
-    "start:dev": "nest start --watch",
+    "start:dev": "NODE_ENV=dev nest start --watch",
+    "start:test": "NODE_ENV=test nest start --watch",
+    "dev:start": "NODE_ENV=dev nodemon",
+    "test:start": "NODE_ENV=test nodemon",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
@@ -17,7 +20,7 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json --verbose"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
@@ -31,6 +34,7 @@
     "dotenv": "^16.0.3",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.9.1",
+    "nodemon": "^2.0.20",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
     "reflect-metadata": "^0.1.13",
