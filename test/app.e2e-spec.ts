@@ -82,6 +82,6 @@ import { app } from './constants';
 
 describe('ROOT', () => {
   it('should ping', () => {
-    return request(app).get('/').expect(200).expect('Hello World!');
+    return request(app).get('/api/').expect(200).expect('Hello World!');
   });
 });
