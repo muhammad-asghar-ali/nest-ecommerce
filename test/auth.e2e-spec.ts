@@ -37,7 +37,7 @@ describe('AUTH', () => {
 
   it('should register user', () => {
     return request(app)
-      .post('/auth/register')
+      .post('/api/auth/register')
       .set('Accept', 'application/json')
       .send(user)
       .expect(({ body }) => {
@@ -51,7 +51,7 @@ describe('AUTH', () => {
 
   it('should register seller', () => {
     return request(app)
-      .post('/auth/register')
+      .post('/api/auth/register')
       .set('Accept', 'application/json')
       .send(sellerRegister)
       .expect(({ body }) => {
@@ -66,7 +66,7 @@ describe('AUTH', () => {
 
   it('should reject duplicate registration', () => {
     return request(app)
-      .post('/auth/register')
+      .post('/api/auth/register')
       .set('Accept', 'application/json')
       .send(user)
       .expect(({ body }) => {
@@ -77,7 +77,7 @@ describe('AUTH', () => {
 
   it('should login user', () => {
     return request(app)
-      .post('/auth/login')
+      .post('/api/auth/login')
       .set('Accept', 'application/json')
       .send(user)
       .expect(({ body }) => {
@@ -92,7 +92,7 @@ describe('AUTH', () => {
 
   it('should login seller', () => {
     return request(app)
-      .post('/auth/login')
+      .post('/api/auth/login')
       .set('Accept', 'application/json')
       .send(sellerLogin)
       .expect(({ body }) => {
