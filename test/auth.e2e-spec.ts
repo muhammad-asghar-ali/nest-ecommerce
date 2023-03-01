@@ -55,7 +55,6 @@ describe('AUTH', () => {
       .set('Accept', 'application/json')
       .send(sellerRegister)
       .expect(({ body }) => {
-        console.log(body);
         expect(body.token).toBeDefined();
         expect(body.user.username).toEqual('seller');
         expect(body.user.password).toBeUndefined();
